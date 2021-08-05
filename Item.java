@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package csu.csci325;
+//QQQ: we still need to fix the package situation...
 
 /**
  *
