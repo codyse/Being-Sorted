@@ -12,6 +12,14 @@ public class Inventory {
     String location;
     String companyName;
     
+    public void addItem() {
+        
+    }
+    
+    public void removeItem() {
+        
+    }
+    
     public String getLocation () {
         return location;
     }
