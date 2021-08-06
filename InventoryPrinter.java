@@ -7,9 +7,11 @@ package csu.csci325;
  */
 public class InventoryPrinter {
     public void printInventory(Inventory inventory) {
-        System.out.println("Name \t Amount \t Description");
-        System.out.print ("Name: " + inventory.getName() 
+        System.out.println("Name \t Company Name \t Amount \t Location\t Description");
+        System.out.print ("Name: " + inventory.getName()
+                + " Company Name: " + inventory.getCompanyName()
                 + " Amount: " + inventory.getAmount() 
+                + " Location: " + inventory.getLocation()
                 + " Description: " + inventory.getDescription());
     }
     
