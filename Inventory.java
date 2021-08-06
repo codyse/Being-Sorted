@@ -3,36 +3,54 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package csu.csci325;
+
 import java.util.ArrayList;
 
 public class Inventory {
-    
+
     ArrayList<Item> items = new ArrayList<Item>();
     String location;
     String companyName;
-    
+
     public void addItem() {
-        
+
     }
-    
+
     public void removeItem() {
-        
+
     }
-    
-    public String getLocation () {
+
+    public String getLocation() {
         return location;
     }
-    
-    public String getCompanyName () {
+
+    public String getCompanyName() {
         return companyName;
     }
-    
-    public void setLocation (String newLocation) {
+
+    public void setLocation(String newLocation) {
         location = newLocation;
     }
-    
-    public void setCompanyName (String newCompanyName) {
+
+    public void setCompanyName(String newCompanyName) {
         companyName = newCompanyName;
+    }
+
+    public static void main(String[] args) {
+        
+        Inventory inventory = new Inventory();
+        
+//        TODO: Implement these classes per design doc
+//        MenuPrinter menu = new MenuPrinter();
+//        InventoryPrinter inventoryPrinter = new InventoryPrinter(inventory);
+//        InventorySearcher searcher = new InventorySearcher(inventory);
+//        InventorySorter sorter = new InventorySorter(inventory);
+        
     }
 }
