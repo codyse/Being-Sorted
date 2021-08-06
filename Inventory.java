@@ -12,7 +12,7 @@ package csu.csci325;
 
 import java.util.ArrayList;
 
-public class Inventory {
+public class Inventory extends Item {
 
     ArrayList<Item> items = new ArrayList<Item>();
     String location;
@@ -50,9 +50,5 @@ public class Inventory {
 
     public void setCompanyName(String newCompanyName) {
         companyName = newCompanyName;
-    }
-
-    public static void main(String[] args) {
-        
     }
 }
