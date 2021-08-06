@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 public class InventoryPrinter {
     public void printInventory(Inventory inventory) {
-        System.out.println("Name \t Company Name \t Amount \t Location\t Description");
+        System.out.println("Name          Company Name          Amount          Location          Description");
         for(int i = 0; i < inventory.items.length(); i++) {
             System.out.print ("Name: " + inventory.getName()
                     + " Company Name: " + inventory.getCompanyName()
