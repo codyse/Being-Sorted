@@ -44,13 +44,5 @@ public class Inventory {
 
     public static void main(String[] args) {
         
-        Inventory inventory = new Inventory();
-        
-//        TODO: Implement these classes per design doc
-//        MenuPrinter menu = new MenuPrinter();
-//        InventoryPrinter inventoryPrinter = new InventoryPrinter(inventory);
-//        InventorySearcher searcher = new InventorySearcher(inventory);
-//        InventorySorter sorter = new InventorySorter(inventory);
-        
     }
 }
