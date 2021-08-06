@@ -22,7 +22,16 @@ public class MenuPrinter {
 
     }
     public static void main(String[] args) {
-            Scanner scnr = new Scanner (System.in);
+        Scanner scnr = new Scanner (System.in);
+        
+                
+        Inventory inventory = new Inventory();
+        
+//        TODO: Implement these classes per design doc
+//        MenuPrinter menu = new MenuPrinter();
+//        InventoryPrinter inventoryPrinter = new InventoryPrinter(inventory);
+//        InventorySearcher searcher = new InventorySearcher(inventory);
+//        InventorySorter sorter = new InventorySorter(inventory);
 
     }
 }    
