@@ -9,6 +9,7 @@ package csu.csci325;
  *
  * @author Alan Macklin
  * @author Cody Scheer
+ * @author James Dixon
  */
 
 public class Item {
@@ -21,9 +22,10 @@ public class Item {
         description = "none";
         amount = 0;
     }
-
-    public Item(String newName, int newAmount) {
+    
+    public Item(String newName, String newDescription, int newAmount) {
         name = newName;
+        description = newDescription;
         amount = newAmount;
     }
 
@@ -52,6 +54,7 @@ public class Item {
     }
 
     public void printItem() {
-        System.out.print("Your item is: " + name + " and the amount you have is: " + amount);
+        System.out.println("Item: " + name + " x " + amount);
+        System.out.println("Description: " + description);
     }
 }
