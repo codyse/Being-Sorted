@@ -66,10 +66,7 @@ public class MenuPrinter {
             inventory.items.get(inventory.items.size() - 1).setName(newName);
             inventory.items.get(inventory.items.size() - 1).setDescription(newDiscription);
             inventory.items.get(inventory.items.size() - 1).setAmount(newAmount);
-            
-            if (input.hasNext()) {
-                input.nextLine();
-            }
+            input.nextLine();
         }
         
         
