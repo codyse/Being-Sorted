@@ -27,15 +27,7 @@ public class Inventory extends Item {
         location = where;
         companyName = nameOfCompany;
     }
-
-    public void addItem() {
-
-    }
-
-    public void removeItem() {
-
-    }
-
+    
     public String getLocation() {
         return location;
     }
