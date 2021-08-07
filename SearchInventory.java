@@ -1,5 +1,5 @@
 package csu.csci325;
-import java.util.stream.IntStream;
+import java.util.*;
 
 /**
 *
@@ -8,7 +8,9 @@ import java.util.stream.IntStream;
 
 public class SearchInventory {
 	
-	public static int[] searchByName(String search, Inventory inventory) {
+	private String inventoryList;
+	
+	public int[] searchByName(String search, Inventory inventory) {
 		// Initialize variables
 		int numItems = inventory.items.size();
 		int i = 0;
@@ -21,7 +23,7 @@ public class SearchInventory {
 		while (i < numItems) {
 			name = inventory.items.get(i).getName();
 			if (name.contains(search)) {
-				matches[j] = i + 1;
+				matches[j] = i;
 				j++;
 			}
 			i++;
@@ -29,8 +31,7 @@ public class SearchInventory {
 		return matches;
 	}
 	
-	// searchByDescription shouldn't be used outside of this class. Use completeSearch instead.
-	private static int[] searchByDescription(String search, Inventory inventory) {
+	public int[] searchByDescription(String search, Inventory inventory) {
 		// Initialize variables
 		int numItems = inventory.items.size();
 		int i = 0;
@@ -43,29 +44,12 @@ public class SearchInventory {
 		while (i < numItems) {
 			name = inventory.items.get(i).getDescription();
 			if (name.contains(search)) {
-				matches[j] = i + 1;
+				matches[j] = i;
 				j++;
 			}
 			i++;
 		}
 		return matches;
-	}
-	public static int[] completeSearch(String search, Inventory inventory) {
-		int[] nameMatch = searchByName(search, inventory);
-		int[] descriptionMatch = searchByDescription(search, inventory);
-		int[] mergedArray = IntStream.concat(IntStream.of(nameMatch), IntStream.of(descriptionMatch)).distinct().sorted().toArray();
-		int counter = 0;
-		for (int i = 0; i < nameMatch.length; i++) {
-		    if (nameMatch[i] != 0) {
-		        counter ++;
-		    }
-		}
-		int completeArray[] = new int[counter];
-		for (int i = 0; i < counter; i++) {
-			completeArray[i] = mergedArray[i] - 1;
-		}
-		
-		return completeArray;
 	}
 	
 }

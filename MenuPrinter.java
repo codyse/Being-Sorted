@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package menuprinter;
+package csu.csci325;
 import java.util.Scanner;
 
 /**
@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class MenuPrinter {
     char optionInput;
+    
     public void printStartMenu(){
         System.out.println("Hello User, let's get you started!");
         System.out.println("First, you'll be prompted to choose an option.");
@@ -21,12 +22,9 @@ public class MenuPrinter {
         System.out.println();
     }
 
-    public void printOptions(){
-        Scanner input = new Scanner (System.in);
-        String userInput = input.nextLine();
-
-        //this.optionInput = optionInput;
-        System.out.println("/t Here are your options: /t " );
+    public void printOptions(Scanner input, Inventory inventory){
+        
+        System.out.println("\t Here are your options: \t " );
         System.out.println("p.) Print the inventory");
         System.out.println("a.) Add items");
         System.out.println("u.) Subtract items");
@@ -36,32 +34,58 @@ public class MenuPrinter {
         System.out.println();
         System.out.println();
         System.out.println("What's your choice? ");
-        /*if (userInput != 'p'){
+        
+        optionInput = input.nextLine().charAt(0);
+        
+        
+        /*
+        if (optionInput == 'u'){
+            System.out.println("Success");
+        }
+        */
+        
+        
+        /*if (optionInput == 'p'){
       Cody's Class
         }
         */
         
-        /*if (userInput != 'a'){
-      Alan's Class
+        if (optionInput == 'a'){
+            Item item = new Item();
+            String newName, newDiscription;
+            int newAmount;
+            
+            System.out.print("Enter the product name: ");
+            newName = input.nextLine();
+            
+            System.out.print("Enter a discription for the product: ");
+            newDiscription = input.nextLine();
+             
+            System.out.print("Enter how much of the product is available (in intager form): ");
+            newAmount = input.nextInt();
+            
+            inventory.items.add(item);
+            inventory.items.get(inventory.items.size() - 1).setName(newName);
+            inventory.items.get(inventory.items.size() - 1).setDescription(newDiscription);
+            inventory.items.get(inventory.items.size() - 1).setAmount(newAmount);
+            System.out.println(inventory.items.get(inventory.items.size() - 1).getName());
+            System.out.println(inventory.items.get(inventory.items.size() - 1).getDescription());
+            System.out.println(inventory.items.get(inventory.items.size() - 1).getAmount());
         }
-        */
         
-        /*if (userInput != 'u'){
-      Alan's Class
-        }
-        */
         
-        /*if (userInput != 's'){
+        
+        /*if (optionInput != 's'){
       Kyle' Class
         }
         */
         
-        /*if (userInput != 'o'){
+        /*if (optionInput != 'o'){
       Matt's Class
         }
         */
         
-        /*if (userInput != 'q'){
+        /*if (optionInput != 'q'){
       James's Class
         }
         */
@@ -73,11 +97,15 @@ public class MenuPrinter {
     } 
     public static void main(String[] args) {
         
+        Scanner input = new Scanner (System.in);
         MenuPrinter intro = new MenuPrinter();
+        Inventory inventory = new Inventory();
 
         intro.printStartMenu();
 
-        intro.printOptions();        
+        intro.printOptions(input, inventory); 
+        
+        intro.printOptions(input, inventory);
         
 
     }
