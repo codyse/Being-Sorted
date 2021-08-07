@@ -22,15 +22,17 @@ public class MenuPrinter {
         System.out.println();
     }
 
-    public void printOptions(Scanner input, Inventory inventory, InventoryPrinter printer){
+    public boolean printOptions(Scanner input, Inventory inventory, InventoryPrinter printer){
         
         System.out.println("\t Here are your options: \t " );
         System.out.println("p.) Print the inventory");
         System.out.println("a.) Add items");
         System.out.println("u.) Subtract items");
-        System.out.println("s.) Search for items(using description)");
+        System.out.println("s.) Search for items by name");
+        System.out.println("d.) Search for items by description");
         System.out.println("o.) Sort items");
         System.out.println("q.) Change quality of items" );
+        System.out.println("x.) Exit" );
         System.out.println();
         System.out.println();
         System.out.println("What's your choice? ");
@@ -71,10 +73,36 @@ public class MenuPrinter {
         
         
         
-        /*if (optionInput != 's'){
-      Kyle' Class
+        if (optionInput == 's'){
+        	System.out.println("Enter the search term:");
+        	String searchTerm = input.nextLine();
+        	int[] matches;
+        	matches = SearchInventory.searchByName(searchTerm, inventory);
+        	for(int i = 0; i < matches.length; i++) {
+        		if (matches[i] > 0) {
+        			System.out.println("Name: " + inventory.items.get(matches[i]-1).getName());
+        			System.out.println("Description: " + inventory.items.get(matches[i]-1).getDescription());
+        			System.out.println("Name: " + inventory.items.get(matches[i]-1).getAmount());
+        			System.out.println();
+        		}
+        	}
         }
-        */
+        
+        if (optionInput == 'd'){
+        	System.out.println("Enter the search term:");
+        	String searchTerm = input.nextLine();
+        	int[] matches;
+        	matches = SearchInventory.completeSearch(searchTerm, inventory);
+        	for(int i = 0; i < matches.length; i++) {
+        		if (matches[i] > 0) {
+        			System.out.println("Name: " + inventory.items.get(matches[i]-1).getName());
+        			System.out.println("Description: " + inventory.items.get(matches[i]-1).getDescription());
+        			System.out.println("Name: " + inventory.items.get(matches[i]-1).getAmount());
+        			System.out.println();
+        		}
+        	}
+        }
+        
         
         /*if (optionInput != 'o'){
       Matt's Class
@@ -85,6 +113,11 @@ public class MenuPrinter {
       James's Class
         }
         */
+        if (optionInput == 'x') {
+        	return false;
+        } else {
+        	return true;
+        }
         
         //else(
         //System.out.println("I'm sorry, I didn't get that. Can you try again");
@@ -97,12 +130,12 @@ public class MenuPrinter {
         MenuPrinter intro = new MenuPrinter();
         Inventory inventory = new Inventory();
         InventoryPrinter printer = new InventoryPrinter();
-
+        boolean run = true;
         intro.printStartMenu();
-
-        intro.printOptions(input, inventory, printer);
-        
-        intro.printOptions(input, inventory, printer);
+        while(run) {
+        	intro.printOptions(input, inventory, printer);
+        }
+      
     }
 }    
     

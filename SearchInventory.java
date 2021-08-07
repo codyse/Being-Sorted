@@ -13,7 +13,7 @@ public class SearchInventory {
 		int numItems = inventory.items.size();
 		int i = 0;
 		int j = 0;
-		int[] matches = new int[i];
+		int[] matches = new int[numItems];
 		String name;
 		
 		// Loops through each item in the ArrayList items. If the name matches the search parameter it
@@ -35,7 +35,7 @@ public class SearchInventory {
 		int numItems = inventory.items.size();
 		int i = 0;
 		int j = 0;
-		int[] matches = new int[i];
+		int[] matches = new int[numItems];
 		String name;
 		
 		// Loops through each item in the ArrayList items. If the name matches the search parameter it
@@ -54,18 +54,8 @@ public class SearchInventory {
 		int[] nameMatch = searchByName(search, inventory);
 		int[] descriptionMatch = searchByDescription(search, inventory);
 		int[] mergedArray = IntStream.concat(IntStream.of(nameMatch), IntStream.of(descriptionMatch)).distinct().sorted().toArray();
-		int counter = 0;
-		for (int i = 0; i < nameMatch.length; i++) {
-		    if (nameMatch[i] != 0) {
-		        counter ++;
-		    }
-		}
-		int completeArray[] = new int[counter];
-		for (int i = 0; i < counter; i++) {
-			completeArray[i] = mergedArray[i] - 1;
-		}
 		
-		return completeArray;
+		return mergedArray;
 	}
 	
 }
