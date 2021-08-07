@@ -1,5 +1,5 @@
 package csu.csci325;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
 *
@@ -10,9 +10,9 @@ public class SearchInventory {
 	
 	private String inventoryList;
 	
-	public void searchByName(String search, ArrayList<Item> items) {
+	public void searchByName(String search, Inventory inventory) {
 		// Initialize variables
-		int numItems = items.size();
+		int numItems = inventory.items.size();
 		int i = 0;
 		int j = 0;
 		int[] matches = new int[i];
@@ -21,7 +21,7 @@ public class SearchInventory {
 		// Loops through each item in the ArrayList items. If the name matches the search parameter it
 		//		stores the indices of the item in the matches array.
 		while (i < numItems) {
-			name = items.get(i).getName();
+			name = inventory.items.get(i).getName();
 			if (name.contains(search)) {
 				matches[j] = i;
 				j++;
@@ -30,7 +30,24 @@ public class SearchInventory {
 		}
 	}
 	
-	public void searchByDescription() {
+	public void searchByDescription(String search, Inventory inventory) {
+		// Initialize variables
+		int numItems = inventory.items.size();
+		int i = 0;
+		int j = 0;
+		int[] matches = new int[i];
+		String name;
+		
+		// Loops through each item in the ArrayList items. If the name matches the search parameter it
+		//		stores the indices of the item in the matches array.
+		while (i < numItems) {
+			name = inventory.items.get(i).getDescription();
+			if (name.contains(search)) {
+				matches[j] = i;
+				j++;
+			}
+			i++;
+		}
 		
 	}
 
