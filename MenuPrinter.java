@@ -22,7 +22,7 @@ public class MenuPrinter {
         System.out.println();
     }
 
-    public void printOptions(Scanner input, Inventory inventory){
+    public void printOptions(Scanner input, Inventory inventory, InventoryPrinter printer){
         
         System.out.println("\t Here are your options: \t " );
         System.out.println("p.) Print the inventory");
@@ -45,12 +45,10 @@ public class MenuPrinter {
         */
         
         
-        /*if (optionInput == 'p'){
-      Cody's Class
+        if (optionInput == 'p'){
+            printer.printInventory(inventory);
         }
-        */
-        
-        if (optionInput == 'a'){
+        else if (optionInput == 'a'){
             Item item = new Item();
             String newName, newDiscription;
             int newAmount;
@@ -68,9 +66,7 @@ public class MenuPrinter {
             inventory.items.get(inventory.items.size() - 1).setName(newName);
             inventory.items.get(inventory.items.size() - 1).setDescription(newDiscription);
             inventory.items.get(inventory.items.size() - 1).setAmount(newAmount);
-            System.out.println(inventory.items.get(inventory.items.size() - 1).getName());
-            System.out.println(inventory.items.get(inventory.items.size() - 1).getDescription());
-            System.out.println(inventory.items.get(inventory.items.size() - 1).getAmount());
+            
             if (input.hasNext()) {
                 input.nextLine();
             }
@@ -103,14 +99,13 @@ public class MenuPrinter {
         Scanner input = new Scanner (System.in);
         MenuPrinter intro = new MenuPrinter();
         Inventory inventory = new Inventory();
+        InventoryPrinter printer = new InventoryPrinter();
 
         intro.printStartMenu();
 
-        intro.printOptions(input, inventory); 
+        intro.printOptions(input, inventory, printer);
         
-        intro.printOptions(input, inventory);
-        
-
+        intro.printOptions(input, inventory, printer);
     }
 }    
     
