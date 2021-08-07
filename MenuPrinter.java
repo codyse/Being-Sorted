@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class MenuPrinter {
     char optionInput;
+    String userInput;
     
     public void printStartMenu(){
         System.out.println("Hello User, let's get you started!");
@@ -35,7 +36,8 @@ public class MenuPrinter {
         System.out.println();
         System.out.println("What's your choice? ");
         
-        optionInput = input.nextLine().charAt(0);
+        userInput = input.nextLine();
+        optionInput = userInput.charAt(0);
         
         
         /*
