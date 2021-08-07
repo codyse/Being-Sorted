@@ -25,7 +25,7 @@ public class MenuPrinter {
         Scanner input = new Scanner (System.in);
         String userInput = input.nextLine();
 
-        this.optionInput = optionInput;
+        //this.optionInput = optionInput;
         System.out.println("/t Here are your options: /t " );
         System.out.println("p.) Print the inventory");
         System.out.println("a.) Add items");
