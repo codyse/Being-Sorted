@@ -10,7 +10,7 @@ public class SearchInventory {
 	
 	private String inventoryList;
 	
-	public void searchByName(String search, Inventory inventory) {
+	public int[] searchByName(String search, Inventory inventory) {
 		// Initialize variables
 		int numItems = inventory.items.size();
 		int i = 0;
@@ -28,9 +28,10 @@ public class SearchInventory {
 			}
 			i++;
 		}
+		return matches;
 	}
 	
-	public void searchByDescription(String search, Inventory inventory) {
+	public int[] searchByDescription(String search, Inventory inventory) {
 		// Initialize variables
 		int numItems = inventory.items.size();
 		int i = 0;
@@ -48,7 +49,7 @@ public class SearchInventory {
 			}
 			i++;
 		}
-		
+		return matches;
 	}
-
+	
 }
