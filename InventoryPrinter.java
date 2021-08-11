@@ -26,12 +26,12 @@ public class InventoryPrinter {
         String formation = "";
         
         for(int i = 0; i < inventory.items.size(); i++) {
-            formation = formation + (i + 1) + ".\n"
-            		+ "Name of item: " + inventory.items.get(i).getName() + '\n'
-                    + "Company Name: " + inventory.getCompanyName() + '\n'
-                    + "Amount: " + inventory.items.get(i).getAmount() + '\n'
-                    + "Location: " + inventory.getLocation() + '\n'
-                    + "Description: " + inventory.items.get(i).getDescription() + '\n' + '\n';
+            formation = formation + (i + 1) + "."
+            		+ "  Name of item: " + inventory.items.get(i).getName() 
+                    + "  Company Name: " + inventory.getCompanyName() 
+                    + "  Amount: " + inventory.items.get(i).getAmount() 
+                    + "  Location: " + inventory.getLocation() 
+                    + "  Description: " + inventory.items.get(i).getDescription() + '\n' + '\n';
         }
         
         return formation;
