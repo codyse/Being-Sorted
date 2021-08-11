@@ -92,9 +92,40 @@ public class MenuPrinter {
             }
         }
 
-        /*
-         * if (optionInput != 'o'){ Matt's Class }
-         */
+        if (optionInput != 'o'){
+            System.out.println("Please select how the inventory should be sorted: ");
+            System.out.println("Select \'n\' to sort by name.");
+            System.out.println("Select \'a\' to sort the amounts in ascending order.");
+            System.out.println("Select \'d\' to sort the amounts in descending order.");
+            System.out.println("Select \'s\' to switch the positions of two items.");
+
+            char sortInput = ' ';
+            String itemOne = "";
+            String itemTwo = "";
+            switch(sortInput) {
+            case 'n' :
+                sortByName(Inventory inventory);
+                break;
+            case 'a' :
+                sortByAmountAcend(Inventory inventory);
+                break;
+            case 'd' :
+                sortByAmountDecend(Inventory inventory);
+                break;
+            case 's' :
+                System.out.print("Select the name of the first item: ");
+                itemOne = scnr.nextLine();
+                System.out.println("");
+                System.out.print("Select the name of the second item: ");
+                itemTwo = scnr.nextLine();
+                System.out.println("");
+                switchPosition(Inventory inventory, itemOne, itemTwo);
+                break;
+            default :
+                System.out.println("Sorry, that is not a valid selection.");
+            }
+         }
+         
 
         /*
          * if (optionInput != 'q'){ James's Class }
