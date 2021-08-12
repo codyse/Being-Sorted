@@ -16,7 +16,7 @@ public class InventoryPrinter {
         FileOutputStream fileStream = new FileOutputStream(fileName); 
         PrintWriter outFS = new PrintWriter(fileStream);
         
-        outFS.print(printInventory(inventory));
+        outFS.print(inventoryFormat(inventory));
         
         outFS.println();
         
