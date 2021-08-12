@@ -23,6 +23,8 @@ public class SortInventory {
         String tempStringSec = "";
         int tempIntFirst = 0;
         int tempIntSec = 0;
+        String desOne = "";
+        String desTwo = "";
         
         for(int i = 0; i < currInventory.items.size() - 1; i++) {
             for(int j = i + 1; j < currInventory.items.size(); j++) {
@@ -30,6 +32,8 @@ public class SortInventory {
                 tempStringSec = currInventory.items.get(j).getName();
                 tempIntFirst = currInventory.items.get(i).getAmount();
                 tempIntSec = currInventory.items.get(j).getAmount();
+                tempIntFirst = currInventory.items.get(i).getDescription();
+                tempIntSec = currInventory.items.get(j).getDescription();
                 
                 if(tempStringFirst.compareTo(tempStringSec) > 0) {
                     String temp =  tempStringFirst;
@@ -38,6 +42,8 @@ public class SortInventory {
                     currInventory.items.get(i).setAmount(tempIntSec);
                     currInventory.items.get(j).setName(temp);
                     currInventory.items.get(j).setAmount(amount);
+                    currInventory.items.get(i).setDescription(desOne);
+                    currInventory.items.get(j).setDescription(desTwo);
                 }
             }
         }
@@ -48,6 +54,8 @@ public class SortInventory {
         int tempAmountTwo = 0;
         String tempStringOne = ""; 
         String tempStringTwo = "";
+        String desOne = "";
+        String desTwo = "";
   
         for(int i = 0; i < currInventory.items.size(); i++) {
             for(int j = i + 1; j < currInventory.items.size(); j++) {
@@ -57,6 +65,8 @@ public class SortInventory {
                         tempAmountTwo = currInventory.items.get(j).getAmount();
                         tempStringOne = currInventory.items.get(i).getName();
                         tempStringTwo = currInventory.items.get(j).getName();
+                        desOne = currInventory.items.get(i).getDescription();
+                        desTwo = currInventory.items.get(j).getDescription();
                         currInventory.items.get(i).setAmount(tempAmountTwo); 
                         currInventory.items.get(j).setAmount(tempAmountOne);
                         currInventory.items.get(i).setName(tempStringTwo); 
@@ -71,6 +81,8 @@ public class SortInventory {
         int tempAmountTwo = 0;
         String tempStringOne = ""; 
         String tempStringTwo = "";
+        String desOne = "";
+        String desTwo = "";
 
         for(int i = 0; i < currInv.items.size(); i++) {
                 for(int j = i + 1; j < currInv.items.size(); j++) {
@@ -80,10 +92,14 @@ public class SortInventory {
                             tempAmountTwo = currInv.items.get(j).getAmount();
                             tempStringOne = currInv.items.get(i).getName();
                             tempStringTwo = currInv.items.get(j).getName();
+                            desOne = currInv.items.get(i).getDescription();
+                            desTwo = currInv.items.get(j).getDescription();
                             currInv.items.get(i).setAmount(tempAmountTwo); 
                             currInv.items.get(j).setAmount(tempAmountOne);
                             currInv.items.get(i).setName(tempStringTwo); 
                             currInv.items.get(j).setName(tempStringOne);
+                            currInv.items.get(i).setDescription(desOne);
+                            currInv.items.get(j).setDescription(desTwo);
                     }
                 }
         }
@@ -95,6 +111,8 @@ public class SortInventory {
         String tempTwo = "";
         int tempAmountOne = 0;
         int tempAmountTwo = 0;
+        String desOne = "";
+        String desTwo = "";
         int indexOne = 0;
         int indexTwo = 0;
         boolean checkOne = false;
@@ -104,6 +122,7 @@ public class SortInventory {
             if(currInv.items.get(i).getName().equals(firstItem)) {
                 tempOne += firstItem;
                 tempAmountOne = currInv.items.get(i).getAmount();
+                desOne = currInv.items.get(i).getDescription();
                 indexOne = i;
                 checkOne = true;
                 break;
@@ -119,6 +138,7 @@ public class SortInventory {
             if(currInv.items.get(i).getName().equals(secItem)) {
                 tempTwo += secItem;
                 tempAmountTwo = currInv.items.get(i).getAmount();
+                desTwo = currInv.items.get(i).getDescription();
                 indexTwo = i;
                 checkTwo = true;
                 break;
@@ -135,6 +155,13 @@ public class SortInventory {
             currInv.items.get(indexTwo).setName(tempOne);
             currInv.items.get(indexOne).setAmount(tempAmountTwo);
             currInv.items.get(indexTwo).setAmount(tempAmountOne);
+            currInv.items.get(indexOne).setDescription(desOne);
+            currInv.items.get(indexTwo).setDescription(desTwo);
         }
     }
+
+    public static void main(String args[])  //static method  
+{  
+System.out.println("Static method");  
+}  
 }
