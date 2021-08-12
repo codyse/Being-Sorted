@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package csu.csci325;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -22,7 +23,7 @@ public class MenuPrinter {
         System.out.println();
     }
 
-    public boolean printOptions (Scanner input, Inventory inventory, InventoryPrinter printer){
+    public boolean printOptions (Scanner input, Inventory inventory, InventoryPrinter printer) throws IOException{
 
         System.out.println("\t Here are your options: \t " );
         System.out.println("p.) Print the inventory");
@@ -35,10 +36,12 @@ public class MenuPrinter {
         System.out.println("x.) Exit" );
         System.out.println();
         System.out.println();
-        System.out.println("What's your choice? ");
+        System.out.print("What's your choice? ");
 
         optionInput = input.nextLine().charAt(0);
         optionInput = Character.toLowerCase(optionInput);
+        
+        System.out.println();
 
         if (optionInput == 'u') {
         	int selection;
@@ -54,7 +57,25 @@ public class MenuPrinter {
             inventory.items.remove(selection - 1);
         }
         else if (optionInput == 'p') {
-            printer.printInventory(inventory);
+        	int toFile;
+        	String fileName;
+        	
+        	System.out.print("Enter an even number to print to a document and an odd number to "
+        			+ "print to the console: ");
+        	
+        	toFile = input.nextInt();
+        	
+        	if (toFile % 2 == 1) {
+                printer.printInventory(inventory);
+        	}
+        	else {
+        		System.out.print("Enter a name of a file (don't add the extension): ");
+        		fileName = input.nextLine();
+        		fileName = fileName + ".txt";
+        		
+        		printer.printToDocument(fileName, inventory);
+        	}
+        	input.nextLine();
         }
         else if (optionInput == 'a') {
             Item item = new Item();
@@ -63,13 +84,16 @@ public class MenuPrinter {
 
             System.out.print("Enter the product name: ");
             newName = input.nextLine();
+            System.out.println();
 
             System.out.print("Enter a discription for the product: ");
             newDiscription = input.nextLine();
+            System.out.println();
 
             System.out.print("Enter how much of the product is available (in intager form): ");
             newAmount = input.nextInt();
             input.nextLine();
+            System.out.println();
 
             inventory.items.add(item);
             inventory.items.get(inventory.items.size() - 1).setName(newName);
@@ -153,12 +177,12 @@ public class MenuPrinter {
         	return false;
         }
         else {
-        		System.out.println("I'm sorry, I didn't get that. Can you try again");
+        	System.out.println("I'm sorry, I didn't get that. Can you try again");
         }
 
         return true;
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Scanner input = new Scanner (System.in);
         MenuPrinter intro = new MenuPrinter();
